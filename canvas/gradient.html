@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+		<script>
+			var canvas=document.getElementById("canvas");
+			
+			var w=canvas.width=window.innerWidth;
+			
+			var h=canvas.height=window.innerHeight;
+			
+			var ctx=canvas.getContext("2d");
+			
+			var gradient=ctx.createLinearGradient(0,0,200,0);
+			
+			gradient.addColorStop(0,"#dedede")
+			
+			gradient.addColorStop(1,"#000")
+			
+			ctx.fillStyle=gradient;
+			
+			ctx.fillRect(0,0,150,150);
+//	
+//			var img=document.getElementById("snow");
+//			
+//			img.onload=function(){
+//				
+//				ctx.drawImage(img,200,200)
+//				
+//			}
+
+			var grd=ctx.createRadialGradient(200,200,5,250,250,100);
+			
+			grd.addColorStop(0,"#dedede")
+			
+			grd.addColorStop(1,"#000")
+			
+			ctx.fillStyle=grd;
+			
+			ctx.fillRect(150,150,150,80);
+		
+		</script>
+	</body>
+</html>

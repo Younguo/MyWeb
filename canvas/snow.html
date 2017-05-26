@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+		<title></title>
+		<style>
+			*{
+				margin: 0;padding: 0;
+			}
+			#snow{
+				width: 100%;height: 100%;
+				position: absolute;
+				overflow: hidden;
+				background: url(img/snow.jpg) no-repeat;
+				background-size: 100% 100%;				
+				
+			}
+		
+			
+		</style>
+		<script type="text/javascript" src="js/particleground.all.js" ></script>
+	</head>
+	<body>
+		<div id="snow">
+			
+		</div>
+		<audio src="music/single dog_.mp3" autoplay></audio>
+		<script>
+			new Particleground.snow("#snow")
+		</script>
+	</body>
+</html>

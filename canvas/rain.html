@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;padding: 0;
+			}
+			body{
+				overflow: hidden;
+				background: #06192b;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+		<script>
+			var canvas=document.getElementById("canvas");
+			
+			var w=canvas.width=window.innerWidth;
+			
+			var h=canvas.height=window.innerHeight;
+			
+			var ctx=canvas.getContext("2d");
+			
+			ctx.lineWidth=5;
+			
+			ctx.lineCap="round"
+			
+			ctx.strokeStyle="rgba(174,194,224,.5)";
+			
+			var num=1000;
+			
+			var arr=[];
+			
+			Math.random()
+			
+			for(var i=0;i<num;i++){
+				
+				arr.push({
+					
+					x:Math.random()*w,
+					
+					y:Math.random()*h,
+					
+					xs:-10*Math.random()+6,
+					
+					ys:Math.random()*10+10,
+					
+					l:Math.random()*1
+					
+				})
+				
+			}
+			
+			var rain=[];
+			
+			for(var n=0;n<num;n++){
+				
+				
+				rain[n]=arr[n];
+				
+				
+				
+			}
+			
+			function draw(){
+				
+				ctx.clearRect(0,0,w,h);
+				
+				var obj={};
+				
+				for(var i=0;i<rain.length;i++){
+					
+					obj=rain[i];
+					
+				ctx.beginPath()
+				
+					ctx.lineTo(obj.x,obj.y)
+					
+					ctx.moveTo(obj.x+obj.xs+obj.l,obj.y+obj.ys+obj.l)
+				
+					ctx.stroke()
+				
+				
+				ctx.closePath()
+					
+					
+				}
+				
+				move();
+				
+				requestAnimationFrame(draw)
+				
+			}
+			
+			function move(){
+				
+				var obj={};
+				
+				for(var i=0;i<rain.length;i++){
+					
+					obj=rain[i];
+					
+					obj.x+=obj.xs;
+					
+					obj.y+=obj.ys;
+					
+					if(obj.x>w||obj.y>h){
+						
+						obj.x=Math.random()*w;
+						
+						obj.y=-20;
+					}
+					
+				}				
+				
+			}
+			
+			requestAnimationFrame(draw)
+		</script>
+	</body>
+</html>

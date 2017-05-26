@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;padding: 0;
+			}
+			canvas{
+				border: 1px solid black;
+			/*	background-image:url(img/img8.jpg);*/
+			                    
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" ></canvas>
+		<script>
+			var canvas=document.getElementById("canvas");
+			
+			canvas.width="320";
+			
+			canvas.height="204";
+			
+			var ctx=canvas.getContext("2d");
+			
+			var nums="0101000100000111111000000";
+			
+			console.log(nums.length);
+			
+			var random=Math.round(Math.random()*24);
+			
+			canvas.style.backgroundImage="url(img/img"+nums.charAt(random)+".jpg)";
+			
+			ctx.fillStyle="#ccc";
+			
+			ctx.globalCompositeOperation="destination-over";
+			
+			ctx.beginPath();
+			
+			ctx.fillRect(0,0,320,204)
+				
+			ctx.closePath();
+			
+			canvas.onmousemove=function(event){
+				
+				var evt=event||window.event;
+				
+				var x=evt.clientX-canvas.offsetLeft;
+				
+				var y=evt.clientY-canvas.offsetTop;
+				
+				ctx.globalCompositeOperation="destination-out"; 
+				
+				ctx.beginPath();
+				
+				ctx.arc(x,y,10,0,2*Math.PI,true);
+				
+				ctx.fill()
+					
+				ctx.closePath();
+				
+				
+				
+				
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>
